@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing APi</title>
+</head>
+<body>
+    
+    <div>
+        Test API Here
+    </div>
+
+    <div id="tapIn">
+
+    </div>
+
+    <button onclick="buttonClicked()">API CALL</button>
+
+    <script>
+        let tapIn = document.getElementById('tapIn')
+        
+        async function fetchAPI() {
+            const response = await fetch("http://localhost:8000", {
+                method: 'GET',
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            
+            })
+            const data = await response.json()
+            console.log(data)
+        }
+
+        fetchAPI()
+        const buttonClicked = () => (
+        tapIn.innerHTML="tapped in here")
+    </script>
+</body>
+</html>
